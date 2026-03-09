@@ -1,0 +1,118 @@
+:root {
+  --bg: black;
+  --surface: #181818;
+  --border: black;
+  --accent: mediumorchid;
+  --text: white;
+  --muted: lightgray;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 440px;
+  padding: 2.5rem 2rem;
+}
+
+.logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input[type="text"]:focus {
+  border-color: var(--accent);
+}
+
+.form-group input[type="text"]::placeholder {
+  color: #333;
+}
+
+input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #0e0e0e;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+input[type="submit"]:hover {
+  opacity: 0.88;
+}
+
+@media (max-width: 480px) { 
+  .card {
+    padding: 1.75rem 1.25rem;
+  } 
+}
+
+@media (min-width: 768px) { 
+  .card {
+    padding: 3rem 2.5rem;
+  }
+}
