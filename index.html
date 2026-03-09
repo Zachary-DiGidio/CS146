@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>InstaSnitch</title>
+  <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+  <div class="card">
+    <h1 class="logo">Insta<span>Snitch</span></h1>
+    <p class="tagline">Find out who's following you... and who's not.</p>
+
+    <form action="results.html" method="get">
+      <div class="form-group">
+        <label for="username">Instagram Username</label>
+        <input
+          type="text"
+          id="username"
+          name="user"
+          placeholder="@yourhandle"
+          maxlength="30"
+          autocomplete="off"
+          autocapitalize="none"
+          required
+        />
+      </div>
+      <input type="submit" value="Check My Account"/>
+    </form>
+  </div>
+</body>
+</html>
