@@ -1,30 +1,71 @@
+
+<!-- Zachary DiGidio -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Results — InstaSnitch</title>
+  <title>Results — GitSnitch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="results.css" />
 </head>
 <body>
   <div class="card">
-    <p class="results-username">@<span id="display-username">username</span></p>
-    <p class="results-note">Here's your Instagram breakdown. Wait for Follower Activity</p>
 
-    <div class="stats-grid">
-      <div class="stat-box">
-        <span class="stat-num" id="followers-count">—</span>
-        <span class="stat-label">Followers</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-num red" id="following-count">—</span>
-        <span class="stat-label">Following</span>
-      </div>
+    <div id="loading-state">
+      <div class="spinner"></div>
+      <p class="loading-text">Fetching GitHub data...</p>
     </div>
 
-    <div id="unfollow-list"></div>
+    <div id="error-state" style="display:none;">
+      <p class="error-title">User not found</p>
+      <p class="error-msg" id="error-msg">That GitHub username doesn't exist or couldn't be reached.</p>
+      <a class="back-link" href="index.html">← Try another username</a>
+    </div>
 
-    <a class="back-link" href="index.html">← Check another account</a>
+    <div id="results-state" style="display:none;">
+
+      <div class="header-row">
+        <p class="results-username">@<span id="display-username">username</span></p>
+        <span class="account-badge" id="account-badge">User</span>
+      </div>
+
+      <p class="results-note" id="first-time-note">
+        First check saved! Come back later to see if your followers have changed.
+      </p>
+      <p class="results-note" id="history-note" style="display:none;">
+        Here's your GitHub breakdown compared to your last visit.
+      </p>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span class="stat-num" id="followers-count">—</span>
+          <span class="stat-label">Followers</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num purple" id="following-count">—</span>
+          <span class="stat-label">Following</span>
+        </div>
+      </div>
+
+      <div class="change-box" id="change-box" style="display:none;">
+        <span class="stat-num" id="change-count">—</span>
+        <span class="stat-label" id="change-label">Since last check</span>
+      </div>
+
+      <div class="meta-row">
+        <span id="display-name" class="meta-name"></span>
+        <span id="public-repos" class="meta-repos"></span>
+      </div>
+
+      <a class="back-link" href="index.html">← Check another account</a>
+    </div>
+
   </div>
+
+  <script src="results.js"></script>
 </body>
 </html>
