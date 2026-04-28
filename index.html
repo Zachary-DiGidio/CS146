@@ -1,32 +1,57 @@
+<!-- Athanasios Kousis -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>InstaSnitch</title>
+  <title>GitSnitch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="index.css"/>
 </head>
 <body>
   <div class="card">
-    <h1 class="logo">Insta<span>Snitch</span></h1>
-    <p class="tagline">Find out who's following you... and who's not.</p>
+    <h1 class="logo">Git<span>Snitch</span></h1>
+    <p class="tagline">Track your GitHub followers.</p>
 
-    <form action="results.html" method="get">
+    <form id="snitch-form" novalidate>
       <div class="form-group">
-        <label for="username">Instagram Username</label>
+        <label for="username">GitHub Username</label>
         <input
           type="text"
           id="username"
           name="user"
-          placeholder="@yourhandle"
-          maxlength="30"
+          placeholder="e.g. torvalds"
+          maxlength="39"
           autocomplete="off"
           autocapitalize="none"
           required
         />
+        <span id="status-msg" class="status-msg" aria-live="polite"></span>
       </div>
+
+      <div class="form-group">
+        <label for="account-type">Account Type</label>
+        <select id="account-type" name="type">
+          <option value="any">Any</option>
+          <option value="user">Personal</option>
+          <option value="organization">Organization</option>
+        </select>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="remember-me" name="remember"/>
+          <span class="checkbox-text">Remember my username</span>
+        </label>
+      </div>
+
       <input type="submit" value="Check My Account"/>
     </form>
   </div>
+
+  <script src="index.js"></script>
 </body>
 </html>
